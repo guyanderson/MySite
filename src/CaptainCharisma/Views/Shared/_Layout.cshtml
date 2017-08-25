@@ -1,13 +1,30 @@
 ﻿<!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <script src="~/bower_components/jquery/src/jquery.js"></script>
+        <link href="~/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <script src="~/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <link href="~/css/StyleSheet.css" rel="stylesheet" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" @Html.ActionLink("Home", "Index", "Home")</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a @Html.ActionLink("About Me", "Index", "About")</a></li>
+                        <li><a @Html.ActionLink("My Projects", "Index", "Project")</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </body>
 </html>
