@@ -17,8 +17,8 @@ namespace CaptainCharisma.Controllers
 
         public IActionResult GetProject()
         {
-            var allProjects = Project.GetProject();
-            return View(allProjects);
+            var projectList = Project.GetProject();
+            return View("Projects", projectList);
         }
     }
 }
