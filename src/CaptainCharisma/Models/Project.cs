@@ -17,6 +17,7 @@ namespace CaptainCharisma.Models
             var client = new RestClient("https://api.github.com/");
             var request = new RestRequest("repos/guyanderson/carebearclub", Method.GET);
             client.Authenticator = new HttpBasicAuthenticator("guyanderson", "github00");
+            request.AddHeader("User-Agent", "guyanderson");
             var response = new RestResponse();
 
             Task.Run(async () =>
@@ -25,8 +26,8 @@ namespace CaptainCharisma.Models
             }).Wait();
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-
-            var repos = JsonConvert.DeserializeObject<List<Owner>>(jsonResponse["repos_url"].ToString());
+            
+            var repos = JsonConvert.DeserializeObject<List<Owner>>(jsonResponse["html_url"].ToString());
             return repos;
         }
 
