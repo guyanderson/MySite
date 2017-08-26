@@ -26,9 +26,15 @@ namespace CaptainCharisma.Models
             }).Wait();
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-
-            List<GitHubRepo> projectList = JsonConvert.DeserializeObject<List<GitHubRepo>>(jsonResponse["items"].ToString());
-            return projectList;
+            List<GitHubRepo> repoList = new List<GitHubRepo> { };
+            for (var i = 0; i < 3; i++)
+            {
+                GitHubRepo repo = JsonConvert.DeserializeObject<GitHubRepo>(jsonResponse["items"][i].ToString());
+                {
+                    repoList.Add(repo);
+                }
+            }
+            return repoList;
         }
 
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)

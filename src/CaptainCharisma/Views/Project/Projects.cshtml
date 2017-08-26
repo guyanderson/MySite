@@ -8,17 +8,14 @@ Hi project
 
 <h2>All Messages</h2>
 <hr />
-@*
-    @Model.html_url
-*@
+
 <ul>
     @foreach (var project in Model)
     {
         <li>
-            <ul>
-                console.log(model);
-                <li>@Html.DisplayFor(modelItem => project.html_url)</li>
-             </ul>
+            <a href="@project.html_url">@Html.DisplayFor(modelItem => project.name)</a>
         </li>
     }
 </ul>
+
+
