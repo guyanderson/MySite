@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CaptainCharisma.Controllers
 {
-    public class Project : Controller
+    public class AboutController : Controller
     {
 
         public IActionResult Index()

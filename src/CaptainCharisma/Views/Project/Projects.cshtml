@@ -1,0 +1,20 @@
+﻿@model IEnumerable<CaptainCharisma.Models.Project.Owner>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+Hi project
+
+<h2>All Messages</h2>
+<hr />
+<ul>
+    @foreach (var project in Model)
+    {
+        <li>
+            <ul>
+                <li>To: @Html.DisplayFor(modelItem => project.repos_url)</li>
+             </ul>
+        </li>
+    }
+</ul>

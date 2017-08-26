@@ -1,6 +1,10 @@
-﻿@{
+﻿@model IEnumerable<CaptainCharisma.Models.Project>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-project hi
+
+Hi projects
+
+<p>@Html.ActionLink("show project", "getProject")</p>
