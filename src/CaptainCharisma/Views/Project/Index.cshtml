@@ -1,10 +1,32 @@
-﻿@model IEnumerable<CaptainCharisma.Models.Project>
+﻿@*
+        @model IEnumerable<CaptainCharisma.Models.Project>
+        @{
+            ViewData["Title"] = "Index";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+
+    Hi projects
+
+    <p>@Html.ActionLink("show project", "GetProject")</p>
+*@
+
+@model IEnumerable<CaptainCharisma.Models.GitHubRepo>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+Hi project
 
-Hi projects
+<h2>All Messages</h2>
+<hr />
 
-<p>@Html.ActionLink("show project", "GetProject")</p>
+<ul>
+    @foreach (var project in Model)
+    {
+        <li>
+            <a href="@project.html_url">@Html.DisplayFor(modelItem => project.name)</a>
+        </li>
+    }
+</ul>

@@ -12,13 +12,14 @@ namespace CaptainCharisma.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var projectList = Project.GetProject();
+            return View("Index", projectList);
         }
 
         public IActionResult GetProject()
         {
             var projectList = Project.GetProject();
-            return View("Projects", projectList);
+            return View("Index", projectList);
         }
     }
 }
