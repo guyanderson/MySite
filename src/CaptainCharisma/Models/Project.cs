@@ -16,8 +16,8 @@ namespace CaptainCharisma.Models
         {
             var client = new RestClient("https://api.github.com/");
             var request = new RestRequest("repos/guyanderson/carebearclub", Method.GET);
-            client.Authenticator = new HttpBasicAuthenticator("guyanderson", "github00");
-            request.AddHeader("User-Agent", "guyanderson");
+            client.Authenticator = new HttpBasicAuthenticator(EnvironmentVariables.AccountSid, EnvironmentVariables.AuthToken);
+            request.AddHeader("User-Agent", EnvironmentVariables.AccountSid);
             var response = new RestResponse();
 
             Task.Run(async () =>
