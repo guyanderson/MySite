@@ -11,8 +11,8 @@ namespace CaptainCharisma.Models
 {
     public class Project
     {
-        //change back Owner to Project
-        public static GitHubRepo GetProject()
+
+        public static List<GitHubRepo> GetProject()
         {
             var client = new RestClient("https://api.github.com/");
             var request = new RestRequest("search/repositories?q=user:guyanderson&sort=stars&order=desc", Method.GET);
@@ -26,8 +26,8 @@ namespace CaptainCharisma.Models
             }).Wait();
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            //just tring to get a test to work, will need to go back to a list
-            GitHubRepo projectList = JsonConvert.DeserializeObject<GitHubRepo>(jsonResponse.ToString());
+
+            List<GitHubRepo> projectList = JsonConvert.DeserializeObject<List<GitHubRepo>>(jsonResponse["items"].ToString());
             return projectList;
         }
 
